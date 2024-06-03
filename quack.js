@@ -1,5 +1,5 @@
 const loadToken = require("./modules/loadToken");
-const ACCESS_TOKEN = loadToken();
+const ACCESS_TOKEN = process.env.QUACK_TOKEN ||  loadToken();
 const randomUseragent = require("random-useragent");
 
 const ua = randomUseragent.getRandom((ua) => {
