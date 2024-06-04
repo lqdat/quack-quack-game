@@ -1,5 +1,5 @@
 const loadToken = require("./modules/loadToken");
-const ACCESS_TOKEN = process.env.QUACK_TOKEN ||  loadToken();
+const ACCESS_TOKEN = loadToken();
 const randomUseragent = require("random-useragent");
 
 const ua = randomUseragent.getRandom((ua) => {
@@ -56,8 +56,8 @@ async function collectFromList(token, ua, listNests, listDucks) {
     listDucks = listDucks.filter((d) => d.id !== duck.id);
     // console.log(listNests.length, listDucks.length);
 
-    //await sleep(config.sleepTime);
-    //collectFromList(token, ua, listNests, listDucks);
+    await sleep(config.sleepTime);
+    collectFromList(token, ua, listNests, listDucks);
   }
 }
 
@@ -68,7 +68,7 @@ async function harvestAllEgg() {
       timerInstance.start();
     }
     // console.log(wallets);
-    // console.log("LINK TOOL : [ j2c.cc/quack ]");
+    console.log("LINK TOOL : [ j2c.cc/quack ]");
     console.log(
       `THOI GIAN CHAY : [ ${timerInstance
         .getTimeValues()
@@ -106,7 +106,7 @@ async function harvestAllEgg() {
       }, 1e3);
     }
 
-    console.log(`[ GOLDEN DUCK 🐥 ] : ${Math.floor(timeToGoldenDuck / 60)}p nua gap`);
+    console.log(`[ GOLDEN DUCK 🐥 ] : ${timeToGoldenDuck}s nua gap`);
 
     if (!run) {
       let walletStr = "";
@@ -130,12 +130,16 @@ async function harvestAllEgg() {
     const nestIds = listNests.map((i) => i.id);
     console.log(`[ NEST 🌕 ${listNests.length} ] :`, nestIds);
     collectFromList(ACCESS_TOKEN, ua, listNests, listDucks);
-    process.exit();
   } catch (error) {
     console.log("harvestAllEgg error", error);
   }
 }
 
 harvestAllEgg();
+setTimeout(() => {
+  console.log('Hết thời gian 50p');
+  process.exit();
+}, 3000000);
+
 
 module.exports=harvestAllEgg;

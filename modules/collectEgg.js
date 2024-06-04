@@ -3,6 +3,7 @@ const sleep = require("./sleep");
 const config = require("../config.json");
 
 async function collectEgg(token, ua, nest_id) {
+
   let retry = 0;
   let data = null;
   while (retry < config.retryCount) {
@@ -24,7 +25,7 @@ async function collectEggInternal(token, ua, nest_id) {
       "nest_id=" + nest_id,
       ua
     );
-    return response.data;
+    return response;
   } catch (error) {
     console.log("collectEgg error");
     if (error.response) {
