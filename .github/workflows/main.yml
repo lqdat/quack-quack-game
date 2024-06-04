@@ -6,6 +6,8 @@ on:
 jobs:
   run_quack:
     runs-on: ubuntu-latest
+    env:
+      QUACK_TOKEN: ${{ secrets.QUACK_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4.1.5
