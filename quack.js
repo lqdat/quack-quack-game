@@ -28,16 +28,9 @@ let eggs = 0;
 let timeToGoldenDuck = 0;
 
 function getDuckToLay(ducks) {
-  let duck = null;
-  let lastTime = Number((Date.now() / 1e3).toFixed(0));
-
-  ducks.forEach((duck) => {
-    if (duck.last_active_time < lastTime) lastTime = duck.last_active_time;
-  });
-
-  ducks.map((item) => {
-    if (item.last_active_time === lastTime) duck = item;
-  });
+  const duck = ducks.reduce((prev, curr) =>
+    prev.last_active_time < curr.last_active_time ? prev : curr
+  );
 
   return duck;
 }
@@ -63,8 +56,8 @@ async function collectFromList(token, ua, listNests, listDucks) {
     listDucks = listDucks.filter((d) => d.id !== duck.id);
     // console.log(listNests.length, listDucks.length);
 
-    await sleep(config.sleepTime);
-    collectFromList(token, ua, listNests, listDucks);
+    //await sleep(config.sleepTime);
+    //collectFromList(token, ua, listNests, listDucks);
   }
 }
 
