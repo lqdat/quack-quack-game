@@ -1,7 +1,7 @@
 name: Run quack game
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/1 * * * *'
 
 jobs:
   run_quack:
