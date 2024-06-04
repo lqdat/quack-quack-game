@@ -56,8 +56,8 @@ async function collectFromList(token, ua, listNests, listDucks) {
     listDucks = listDucks.filter((d) => d.id !== duck.id);
     // console.log(listNests.length, listDucks.length);
 
-    await sleep(config.sleepTime);
-    collectFromList(token, ua, listNests, listDucks);
+    //await sleep(config.sleepTime);
+    //collectFromList(token, ua, listNests, listDucks);
   }
 }
 
