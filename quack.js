@@ -113,7 +113,7 @@ async function harvestAllEgg() {
       }, 1e3);
     }
 
-    console.log(`[ GOLDEN DUCK 🐥 ] : ${timeToGoldenDuck}s nua gap`);
+    console.log(`[ GOLDEN DUCK 🐥 ] : ${Math.floor(timeToGoldenDuck / 60)}p nua gap`);
 
     if (!run) {
       let walletStr = "";
