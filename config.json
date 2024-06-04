@@ -1,9 +1,5 @@
 {
   "nest": 3,
-<<<<<<< HEAD
   "sleepTime": 5,
-=======
-  "sleepTime": 3,
->>>>>>> 582cba7c569503b4e67b35469e46f9dc97ec8bfd
   "retryCount": 5
 }

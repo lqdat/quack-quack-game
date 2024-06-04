@@ -130,10 +130,12 @@ async function harvestAllEgg() {
     const nestIds = listNests.map((i) => i.id);
     console.log(`[ NEST 🌕 ${listNests.length} ] :`, nestIds);
     collectFromList(ACCESS_TOKEN, ua, listNests, listDucks);
+    process.exit();
   } catch (error) {
     console.log("harvestAllEgg error", error);
   }
 }
 
 harvestAllEgg();
+
 module.exports=harvestAllEgg;
