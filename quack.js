@@ -139,7 +139,7 @@ harvestAllEgg();
 setTimeout(() => {
   console.log('Hết thời gian 50p');
   process.exit();
-}, 600);
+}, 10000);
 
 
 module.exports=harvestAllEgg;
