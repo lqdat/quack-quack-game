@@ -23,7 +23,9 @@ function loadUserLoginInfo() {
 function loadToken() {
   
   const TELEGRAM_USER = loadUserLoginInfo();
+
   const ACCESS_TOKEN =  TELEGRAM_USER?.state?.token;
+
   if (!ACCESS_TOKEN) {
     console.error(ERROR_MESSAGE);
     process.exit(1);
