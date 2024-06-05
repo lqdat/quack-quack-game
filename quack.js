@@ -1,5 +1,5 @@
 const loadToken = require("./modules/loadToken");
-const ACCESS_TOKEN =  process.env.QUACK_TOKEN ||   loadToken();
+const ACCESS_TOKEN = process.env.QUACK_TOKEN || loadToken();
 const randomUseragent = require("random-useragent");
 
 const ua = randomUseragent.getRandom((ua) => {
@@ -136,10 +136,12 @@ async function harvestAllEgg() {
 }
 
 harvestAllEgg();
-setTimeout(() => {
-  console.log('Hết thời gian 50p');
-  process.exit();
-}, 1200000);
+if (process.env.NONSTOP === 'true') {
+  setTimeout(() => {
+    console.log('Hết thời gian 50p');
+    process.exit();
+  }, 1200000);
+}
 
 
-module.exports=harvestAllEgg;
+module.exports = harvestAllEgg;
