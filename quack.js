@@ -1,5 +1,5 @@
 const loadToken = require("./modules/loadToken");
-const ACCESS_TOKEN = loadToken();
+const ACCESS_TOKEN =  process.env.QUACK_TOKEN ||   loadToken();
 const randomUseragent = require("random-useragent");
 
 const ua = randomUseragent.getRandom((ua) => {
@@ -139,7 +139,7 @@ harvestAllEgg();
 setTimeout(() => {
   console.log('Hết thời gian 50p');
   process.exit();
-}, 3000000);
+}, 600);
 
 
 module.exports=harvestAllEgg;
