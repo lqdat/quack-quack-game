@@ -1,5 +1,5 @@
 const loadToken = require("./modules/loadToken");
-const ACCESS_TOKEN =  process.env.QUACK_TOKEN ||   loadToken();
+const ACCESS_TOKEN = process.env.QUACK_TOKEN || loadToken();
 const randomUseragent = require("random-useragent");
 
 const ua = randomUseragent.getRandom((ua) => {
@@ -86,10 +86,10 @@ async function harvestAllEgg() {
         // console.log("rewardData", rewardData);
         if (rewardData.data.type === 0) {
           console.log("[ GOLDEN DUCK 🐥 ] : Chuc ban may man lan sau");
-          addLog("[ GOLDEN DUCK 🐥 ] : Chuc ban may man lan sau\n");
+          //addLog("[ GOLDEN DUCK 🐥 ] : Chuc ban may man lan sau\n");
         } else if (rewardData.data.type === 1 || rewardData.data.type === 4) {
           console.log("[ GOLDEN DUCK 🐥 ] : TON | TRU -> Bo qua");
-          addLog("[ GOLDEN DUCK 🐥 ] : TON | TRU -> Bo qua\n");
+         // addLog("[ GOLDEN DUCK 🐥 ] : TON | TRU -> Bo qua\n");
         } else {
           const claimReward = await claimGoldenDuck(
             ACCESS_TOKEN,
@@ -136,6 +136,4 @@ async function harvestAllEgg() {
 
 harvestAllEgg();
 
-
-
-module.exports=harvestAllEgg;
+module.exports = harvestAllEgg;
