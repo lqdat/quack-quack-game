@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: quack-quack
+  namespace: lqdat-1-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quack-quack
+  template:
+    metadata:
+      labels:
+        app: quack-quack
+    spec:
+      containers:
+        - name: quack
+          env:
+            - name: QUACK_TOKEN
+              value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcyNDY4OCwidGltZXN0YW1wIjoxNzE3NTU5NjY1MjMzLCJ0eXBlIjoxLCJpYXQiOjE3MTc1NTk2NjUsImV4cCI6MTcxODE2NDQ2NX0.B_3bc28Jkx05uJasr4liH_kPPnbDPy0J41NrBJ4vWCo
+          image: 'ghcr.io/lqdat/quack-quack:v3'
+  revisionHistoryLimit: 0

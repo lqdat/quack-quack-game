@@ -1,9 +1,13 @@
-const fs = require("fs");
+const process = require('process');
+const { Axiom } = require('@axiomhq/js');
 
-function addLog(msg) {
-  const time = new Date().toLocaleString();
-  const logStr = `${time} | ${msg}`;
-  fs.appendFileSync("./log.txt", logStr, "utf-8");
+async function addLog(msg) {
+  if (process.env.AXIOM_TOKEN) {
+    const axiom = new Axiom({token: process.env.AXIOM_TOKEN})
+    const time = new Date().toLocaleString();
+    const logStr = `${time} | ${msg}`;
+    await axiom.ingestRaw('quack-quack', logStr, ContentType.JSON, ContentEncoding.Identity);
+  }
 }
 
 module.exports = addLog;

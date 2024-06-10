@@ -68,7 +68,6 @@ async function harvestAllEgg() {
       timerInstance.start();
     }
     // console.log(wallets);
-    console.log("LINK TOOL : [ j2c.cc/quack ]");
     console.log(
       `THOI GIAN CHAY : [ ${timerInstance
         .getTimeValues()
@@ -136,10 +135,7 @@ async function harvestAllEgg() {
 }
 
 harvestAllEgg();
-setTimeout(() => {
-  console.log('Hết thời gian 50p');
-  process.exit();
-}, 600);
+
 
 
 module.exports=harvestAllEgg;
