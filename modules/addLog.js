@@ -1,5 +1,5 @@
 const process = require('process');
-const { Axiom } = require('@axiomhq/js');
+const { Axiom, ContentType, ContentEncoding } = require('@axiomhq/js');
 
 async function addLog(msg) {
   if (process.env.AXIOM_TOKEN) {
